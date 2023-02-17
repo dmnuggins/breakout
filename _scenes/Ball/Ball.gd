@@ -1,23 +1,30 @@
 extends KinematicBody2D
 
-export var speed = 500.0
+export var speed = 600.0
 var velocity = Vector2.ZERO
 var motion_vec = Vector2.ZERO
-var launch_angle = 0
+var angle_factor = 7
 
 func _ready():
 	# randomizes the launch angle of the ball
-	randomize()
-	launch_angle = rand_range(-45, 45)
-	launch_angle = deg2rad(launch_angle)
+	velocity.y = speed
 
 func _physics_process(delta):
 	# when user presses "space" ball velocity and angle is set
-	if Input.is_action_just_pressed("ui_accept"):
-		motion_vec = Vector2(0, -speed).rotated(launch_angle)
 	# ball is launched
-	var collider = move_and_collide(motion_vec * delta)
+	var collider = move_and_slide(velocity, Vector2.UP)
+	if is_on_ceiling():
+		velocity.y = -velocity.y
+		print("HIT - Ceiling")
+	if is_on_wall():
+		velocity.x = -velocity.x
+		print("HIT - Wall")
+	if is_on_floor():
+		velocity.y = -velocity.y
+		print("HIT - Paddle")
+		for slide in get_slide_count():
+			var collision = get_slide_collision(slide)
+			velocity.x = (transform.origin.x - collision.collider.position.x) * angle_factor
 	
-	# if ball collides, ball will bounce
-	if collider:
-		motion_vec = motion_vec.bounce(collider.normal)
+	# normalizes the speed, so contacting edge of board does not dramatically increase magnitude of velocity vector
+	velocity = (velocity.normalized() * speed)

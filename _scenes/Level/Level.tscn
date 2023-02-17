@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://_scenes/Level/Level.gd" type="Script" id=1]
 [ext_resource path="res://_scenes/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://_scenes/Wall/Wall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://_scenes/Ceiling/Ceiling.tscn" type="PackedScene" id=4]
 [ext_resource path="res://_scenes/Ball/Ball.tscn" type="PackedScene" id=5]
-[ext_resource path="res://_scenes/DeadZone.tscn" type="PackedScene" id=6]
+[ext_resource path="res://_scenes/Brick/Brick.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 640, 56 )
 
 [node name="Level" type="Node"]
 script = ExtResource( 1 )
@@ -13,21 +16,30 @@ script = ExtResource( 1 )
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 720, 1280 )
+rect_min_size = Vector2( 1280, 720 )
 color = Color( 0, 0, 0, 1 )
 
-[node name="Ball" parent="." instance=ExtResource( 5 )]
-position = Vector2( 360, 1216 )
-
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 360, 1240 )
+position = Vector2( 640, 688 )
+
+[node name="Ball" parent="." instance=ExtResource( 5 )]
+position = Vector2( 640, 664 )
+rotation = -1.5708
 
 [node name="Left" parent="." instance=ExtResource( 3 )]
 
 [node name="Right" parent="." instance=ExtResource( 3 )]
-position = Vector2( 752, 0 )
+position = Vector2( 1312, 0 )
 
 [node name="Ceiling" parent="." instance=ExtResource( 4 )]
 
-[node name="DeadZone" parent="." instance=ExtResource( 6 )]
-position = Vector2( 360, 1312 )
+[node name="DeadZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone"]
+position = Vector2( 640, 776 )
+shape = SubResource( 1 )
+
+[node name="Row" type="Node2D" parent="."]
+position = Vector2( 40, 64 )
+
+[node name="Brick" parent="Row" instance=ExtResource( 7 )]

@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var speed = 100.0
+export var speed = 150.0
 export var lives = 3
 
 # Declare member variables here. Examples:
