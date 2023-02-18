@@ -17,3 +17,6 @@ shape = SubResource( 1 )
 position = Vector2( -0.125839, 2.47955e-05 )
 scale = Vector2( 0.503445, 1.32657 )
 texture = ExtResource( 2 )
+
+[node name="BallPosition" type="Node2D" parent="."]
+position = Vector2( 16, 5.72205e-05 )

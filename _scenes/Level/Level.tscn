@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://_scenes/Level/Level.gd" type="Script" id=1]
 [ext_resource path="res://_scenes/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://_scenes/Wall/Wall.tscn" type="PackedScene" id=3]
 [ext_resource path="res://_scenes/Ceiling/Ceiling.tscn" type="PackedScene" id=4]
-[ext_resource path="res://_scenes/Ball/Ball.tscn" type="PackedScene" id=5]
 [ext_resource path="res://_scenes/Brick/Brick.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -22,10 +21,6 @@ color = Color( 0, 0, 0, 1 )
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 640, 688 )
 
-[node name="Ball" parent="." instance=ExtResource( 5 )]
-position = Vector2( 640, 664 )
-rotation = -1.5708
-
 [node name="Left" parent="." instance=ExtResource( 3 )]
 
 [node name="Right" parent="." instance=ExtResource( 3 )]
@@ -40,6 +35,28 @@ position = Vector2( 640, 776 )
 shape = SubResource( 1 )
 
 [node name="Row" type="Node2D" parent="."]
-position = Vector2( 40, 64 )
+position = Vector2( 0, 80 )
 
-[node name="Brick" parent="Row" instance=ExtResource( 7 )]
+[node name="Brick1" parent="Row" instance=ExtResource( 7 )]
+position = Vector2( 2, 0 )
+
+[node name="Brick2" parent="Row" instance=ExtResource( 7 )]
+position = Vector2( 162, 0 )
+
+[node name="Brick3" parent="Row" instance=ExtResource( 7 )]
+position = Vector2( 322, 0 )
+
+[node name="Brick4" parent="Row" instance=ExtResource( 7 )]
+position = Vector2( 482, 0 )
+
+[node name="Brick5" parent="Row" instance=ExtResource( 7 )]
+position = Vector2( 642, 0 )
+
+[node name="Brick6" parent="Row" instance=ExtResource( 7 )]
+position = Vector2( 802, 0 )
+
+[node name="Brick7" parent="Row" instance=ExtResource( 7 )]
+position = Vector2( 962, 0 )
+
+[node name="Brick8" parent="Row" instance=ExtResource( 7 )]
+position = Vector2( 1122, 0 )

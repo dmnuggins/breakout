@@ -6,20 +6,22 @@ var motion_vec = Vector2.ZERO
 var angle_factor = 7
 
 func _ready():
-	# randomizes the launch angle of the ball
 	velocity.y = speed
-
+	position = get_parent().find_node("Player").get_node("BallPosition").global_position
+	pass
+	
 func _physics_process(delta):
-	# when user presses "space" ball velocity and angle is set
-	# ball is launched
-	var collider = move_and_slide(velocity, Vector2.UP)
+	move_and_slide(velocity, Vector2.UP)
+	
 	if is_on_ceiling():
 		velocity.y = -velocity.y
 		print("HIT - Ceiling")
 	if is_on_wall():
+		$Wall.play()
 		velocity.x = -velocity.x
 		print("HIT - Wall")
 	if is_on_floor():
+		$Paddle.play()
 		velocity.y = -velocity.y
 		print("HIT - Paddle")
 		for slide in get_slide_count():

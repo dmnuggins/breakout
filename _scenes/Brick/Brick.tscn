@@ -3,18 +3,15 @@
 [ext_resource path="res://_scenes/Brick/Brick.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 76, 12 )
+extents = Vector2( 77.5, 10 )
 
 [node name="Brick" type="StaticBody2D"]
 script = ExtResource( 2 )
 
 [node name="BrickShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 76, 12 )
+position = Vector2( 77.5, 10 )
 shape = SubResource( 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 152.0
-margin_bottom = 24.0
-__meta__ = {
-"_edit_group_": true
-}
+margin_right = 155.0
+margin_bottom = 20.0
