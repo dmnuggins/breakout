@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 77.5, 10 )
 
-[node name="Brick" type="StaticBody2D"]
+[node name="Brick" type="StaticBody2D" groups=["breakable"]]
 script = ExtResource( 2 )
 
 [node name="BrickShape2D" type="CollisionShape2D" parent="."]

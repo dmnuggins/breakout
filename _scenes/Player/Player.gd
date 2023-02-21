@@ -2,11 +2,23 @@ extends KinematicBody2D
 
 export var speed = 150.0
 export var lives = 3
+var launchable := true
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# Instances ball prefab and sets spawn at BallPosition
+func launch_ball(var prefab):
+	$BallPosition.hide()
+	var ball = prefab.instance()
+	ball.global_position = $BallPosition.global_position
+	launchable = false
+	return ball
 
+func launchable():
+	return launchable
+
+func reset_ball():
+	launchable = true
+	$BallPosition.show()
+	pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,7 +31,6 @@ func _ready():
 
 func _physics_process(delta):
 	var velocity = Vector2.ZERO
-	
 	if Input.is_action_pressed("move_left"):
 		velocity.x = -speed
 		move_and_slide(velocity, Vector2.UP)

@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "StaticBody2D",
+"class": "Brick",
+"language": "GDScript",
+"path": "res://_scenes/Brick/Brick.gd"
+} ]
+_global_script_class_icons={
+"Brick": ""
+}
+
 [application]
 
 config/name="breakout"

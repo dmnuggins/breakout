@@ -19,8 +19,8 @@ margin_top = -8.0
 margin_right = 8.0
 margin_bottom = 8.0
 
-[node name="Wall" type="AudioStreamPlayer2D" parent="."]
+[node name="Wall" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
-[node name="Paddle" type="AudioStreamPlayer2D" parent="."]
+[node name="Paddle" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
