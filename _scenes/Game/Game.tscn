@@ -1,0 +1,675 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://_scenes/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://_scenes/Brick/Brick.tscn" type="PackedScene" id=2]
+[ext_resource path="res://_scenes/Wall/Wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://_scenes/Ceiling/Ceiling.tscn" type="PackedScene" id=4]
+[ext_resource path="res://_scenes/Brick/Bricks.gd" type="Script" id=5]
+[ext_resource path="res://_scenes/Game/Game.gd" type="Script" id=6]
+[ext_resource path="res://_assets/fonts/Minecraft.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 640, 55.5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+extra_spacing_top = 10
+font_data = ExtResource( 7 )
+
+[node name="Game" type="Node"]
+script = ExtResource( 6 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1280, 720 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 640, 688 )
+
+[node name="Left" parent="." instance=ExtResource( 3 )]
+
+[node name="Right" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1312, 0 )
+
+[node name="Ceiling" parent="." instance=ExtResource( 4 )]
+
+[node name="DeadZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeadZone"]
+position = Vector2( 640, 776.5 )
+shape = SubResource( 1 )
+
+[node name="Bricks" type="Node2D" parent="."]
+position = Vector2( 0, 80 )
+script = ExtResource( 5 )
+
+[node name="Row 7" type="Node2D" parent="Bricks"]
+
+[node name="Brick 0" parent="Bricks/Row 7" instance=ExtResource( 2 )]
+position = Vector2( 2, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 7
+color = Color( 1, 0, 0, 1 )
+
+[node name="Brick 1" parent="Bricks/Row 7" instance=ExtResource( 2 )]
+position = Vector2( 162, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 7
+color = Color( 1, 0, 0, 1 )
+
+[node name="Brick 2" parent="Bricks/Row 7" instance=ExtResource( 2 )]
+position = Vector2( 322, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 7
+color = Color( 1, 0, 0, 1 )
+
+[node name="Brick 3" parent="Bricks/Row 7" instance=ExtResource( 2 )]
+position = Vector2( 482, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 7
+color = Color( 1, 0, 0, 1 )
+
+[node name="Brick 4" parent="Bricks/Row 7" instance=ExtResource( 2 )]
+position = Vector2( 642, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 7
+color = Color( 1, 0, 0, 1 )
+
+[node name="Brick 5" parent="Bricks/Row 7" instance=ExtResource( 2 )]
+position = Vector2( 802, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 7
+color = Color( 1, 0, 0, 1 )
+
+[node name="Brick 6" parent="Bricks/Row 7" instance=ExtResource( 2 )]
+position = Vector2( 962, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 7
+color = Color( 1, 0, 0, 1 )
+
+[node name="Brick 7" parent="Bricks/Row 7" instance=ExtResource( 2 )]
+position = Vector2( 1122, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 7
+color = Color( 1, 0, 0, 1 )
+
+[node name="Row 6" type="Node2D" parent="Bricks"]
+position = Vector2( 0, 25 )
+
+[node name="Brick 0" parent="Bricks/Row 6" instance=ExtResource( 2 )]
+position = Vector2( 2, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 6
+color = Color( 1, 0, 0, 1 )
+
+[node name="Brick 1" parent="Bricks/Row 6" instance=ExtResource( 2 )]
+position = Vector2( 162, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 6
+color = Color( 1, 0, 0, 1 )
+
+[node name="Brick 2" parent="Bricks/Row 6" instance=ExtResource( 2 )]
+position = Vector2( 322, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 6
+color = Color( 1, 0, 0, 1 )
+
+[node name="Brick 3" parent="Bricks/Row 6" instance=ExtResource( 2 )]
+position = Vector2( 482, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 6
+color = Color( 1, 0, 0, 1 )
+
+[node name="Brick 4" parent="Bricks/Row 6" instance=ExtResource( 2 )]
+position = Vector2( 642, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 6
+color = Color( 1, 0, 0, 1 )
+
+[node name="Brick 5" parent="Bricks/Row 6" instance=ExtResource( 2 )]
+position = Vector2( 802, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 6
+color = Color( 1, 0, 0, 1 )
+
+[node name="Brick 6" parent="Bricks/Row 6" instance=ExtResource( 2 )]
+position = Vector2( 962, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 6
+color = Color( 1, 0, 0, 1 )
+
+[node name="Brick 7" parent="Bricks/Row 6" instance=ExtResource( 2 )]
+position = Vector2( 1122, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 6
+color = Color( 1, 0, 0, 1 )
+
+[node name="Row 5" type="Node2D" parent="Bricks"]
+position = Vector2( 0, 60 )
+
+[node name="Brick 0" parent="Bricks/Row 5" instance=ExtResource( 2 )]
+position = Vector2( 2, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 5
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="Brick 1" parent="Bricks/Row 5" instance=ExtResource( 2 )]
+position = Vector2( 162, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 5
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="Brick 2" parent="Bricks/Row 5" instance=ExtResource( 2 )]
+position = Vector2( 322, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 5
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="Brick 3" parent="Bricks/Row 5" instance=ExtResource( 2 )]
+position = Vector2( 482, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 5
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="Brick 4" parent="Bricks/Row 5" instance=ExtResource( 2 )]
+position = Vector2( 642, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 5
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="Brick 5" parent="Bricks/Row 5" instance=ExtResource( 2 )]
+position = Vector2( 802, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 5
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="Brick 6" parent="Bricks/Row 5" instance=ExtResource( 2 )]
+position = Vector2( 962, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 5
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="Brick 7" parent="Bricks/Row 5" instance=ExtResource( 2 )]
+position = Vector2( 1122, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 5
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="Row 4" type="Node2D" parent="Bricks"]
+position = Vector2( 0, 85 )
+
+[node name="Brick 0" parent="Bricks/Row 4" instance=ExtResource( 2 )]
+position = Vector2( 2, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 4
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="Brick 1" parent="Bricks/Row 4" instance=ExtResource( 2 )]
+position = Vector2( 162, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 4
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="Brick 2" parent="Bricks/Row 4" instance=ExtResource( 2 )]
+position = Vector2( 322, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 4
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="Brick 3" parent="Bricks/Row 4" instance=ExtResource( 2 )]
+position = Vector2( 482, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 4
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="Brick 4" parent="Bricks/Row 4" instance=ExtResource( 2 )]
+position = Vector2( 642, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 4
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="Brick 5" parent="Bricks/Row 4" instance=ExtResource( 2 )]
+position = Vector2( 802, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 4
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="Brick 6" parent="Bricks/Row 4" instance=ExtResource( 2 )]
+position = Vector2( 962, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 4
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="Brick 7" parent="Bricks/Row 4" instance=ExtResource( 2 )]
+position = Vector2( 1122, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 4
+color = Color( 1, 0.447059, 0, 1 )
+
+[node name="Row 3" type="Node2D" parent="Bricks"]
+position = Vector2( 0, 120 )
+
+[node name="Brick 0" parent="Bricks/Row 3" instance=ExtResource( 2 )]
+position = Vector2( 2, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 3
+color = Color( 0.0666667, 0.85098, 0, 1 )
+
+[node name="Brick 1" parent="Bricks/Row 3" instance=ExtResource( 2 )]
+position = Vector2( 162, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 3
+color = Color( 0.0666667, 0.85098, 0, 1 )
+
+[node name="Brick 2" parent="Bricks/Row 3" instance=ExtResource( 2 )]
+position = Vector2( 322, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 3
+color = Color( 0.0666667, 0.85098, 0, 1 )
+
+[node name="Brick 3" parent="Bricks/Row 3" instance=ExtResource( 2 )]
+position = Vector2( 482, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 3
+color = Color( 0.0666667, 0.85098, 0, 1 )
+
+[node name="Brick 4" parent="Bricks/Row 3" instance=ExtResource( 2 )]
+position = Vector2( 642, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 3
+color = Color( 0.0666667, 0.85098, 0, 1 )
+
+[node name="Brick 5" parent="Bricks/Row 3" instance=ExtResource( 2 )]
+position = Vector2( 802, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 3
+color = Color( 0.0666667, 0.85098, 0, 1 )
+
+[node name="Brick 6" parent="Bricks/Row 3" instance=ExtResource( 2 )]
+position = Vector2( 962, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 3
+color = Color( 0.0666667, 0.85098, 0, 1 )
+
+[node name="Brick 7" parent="Bricks/Row 3" instance=ExtResource( 2 )]
+position = Vector2( 1122, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 3
+color = Color( 0.0666667, 0.85098, 0, 1 )
+
+[node name="Row 2" type="Node2D" parent="Bricks"]
+position = Vector2( 0, 145 )
+
+[node name="Brick 0" parent="Bricks/Row 2" instance=ExtResource( 2 )]
+position = Vector2( 2, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 2
+color = Color( 0.0666667, 0.85098, 0, 1 )
+
+[node name="Brick 1" parent="Bricks/Row 2" instance=ExtResource( 2 )]
+position = Vector2( 162, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 2
+color = Color( 0.0666667, 0.85098, 0, 1 )
+
+[node name="Brick 2" parent="Bricks/Row 2" instance=ExtResource( 2 )]
+position = Vector2( 322, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 2
+color = Color( 0.0666667, 0.85098, 0, 1 )
+
+[node name="Brick 3" parent="Bricks/Row 2" instance=ExtResource( 2 )]
+position = Vector2( 482, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 2
+color = Color( 0.0666667, 0.85098, 0, 1 )
+
+[node name="Brick 4" parent="Bricks/Row 2" instance=ExtResource( 2 )]
+position = Vector2( 642, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 2
+color = Color( 0.0666667, 0.85098, 0, 1 )
+
+[node name="Brick 5" parent="Bricks/Row 2" instance=ExtResource( 2 )]
+position = Vector2( 802, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 2
+color = Color( 0.0666667, 0.85098, 0, 1 )
+
+[node name="Brick 6" parent="Bricks/Row 2" instance=ExtResource( 2 )]
+position = Vector2( 962, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 2
+color = Color( 0.0666667, 0.85098, 0, 1 )
+
+[node name="Brick 7" parent="Bricks/Row 2" instance=ExtResource( 2 )]
+position = Vector2( 1122, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 2
+color = Color( 0.0666667, 0.85098, 0, 1 )
+
+[node name="Row 1" type="Node2D" parent="Bricks"]
+position = Vector2( 0, 180 )
+
+[node name="Brick 0" parent="Bricks/Row 1" instance=ExtResource( 2 )]
+position = Vector2( 2, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 1
+color = Color( 0, 0.756863, 0.956863, 1 )
+
+[node name="Brick 1" parent="Bricks/Row 1" instance=ExtResource( 2 )]
+position = Vector2( 162, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 1
+color = Color( 0, 0.756863, 0.956863, 1 )
+
+[node name="Brick 2" parent="Bricks/Row 1" instance=ExtResource( 2 )]
+position = Vector2( 322, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 1
+color = Color( 0, 0.756863, 0.956863, 1 )
+
+[node name="Brick 3" parent="Bricks/Row 1" instance=ExtResource( 2 )]
+position = Vector2( 482, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 1
+color = Color( 0, 0.756863, 0.956863, 1 )
+
+[node name="Brick 4" parent="Bricks/Row 1" instance=ExtResource( 2 )]
+position = Vector2( 642, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 1
+color = Color( 0, 0.756863, 0.956863, 1 )
+
+[node name="Brick 5" parent="Bricks/Row 1" instance=ExtResource( 2 )]
+position = Vector2( 802, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 1
+color = Color( 0, 0.756863, 0.956863, 1 )
+
+[node name="Brick 6" parent="Bricks/Row 1" instance=ExtResource( 2 )]
+position = Vector2( 962, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 1
+color = Color( 0, 0.756863, 0.956863, 1 )
+
+[node name="Brick 7" parent="Bricks/Row 1" instance=ExtResource( 2 )]
+position = Vector2( 1122, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+row = 1
+color = Color( 0, 0.756863, 0.956863, 1 )
+
+[node name="Row 0" type="Node2D" parent="Bricks"]
+position = Vector2( 0, 205 )
+
+[node name="Brick 0" parent="Bricks/Row 0" instance=ExtResource( 2 )]
+position = Vector2( 2, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+color = Color( 0, 0.756863, 0.956863, 1 )
+
+[node name="Brick 1" parent="Bricks/Row 0" instance=ExtResource( 2 )]
+position = Vector2( 162, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+color = Color( 0, 0.756863, 0.956863, 1 )
+
+[node name="Brick 2" parent="Bricks/Row 0" instance=ExtResource( 2 )]
+position = Vector2( 322, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+color = Color( 0, 0.756863, 0.956863, 1 )
+
+[node name="Brick 3" parent="Bricks/Row 0" instance=ExtResource( 2 )]
+position = Vector2( 482, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+color = Color( 0, 0.756863, 0.956863, 1 )
+
+[node name="Brick 4" parent="Bricks/Row 0" instance=ExtResource( 2 )]
+position = Vector2( 642, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+color = Color( 0, 0.756863, 0.956863, 1 )
+
+[node name="Brick 5" parent="Bricks/Row 0" instance=ExtResource( 2 )]
+position = Vector2( 802, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+color = Color( 0, 0.756863, 0.956863, 1 )
+
+[node name="Brick 6" parent="Bricks/Row 0" instance=ExtResource( 2 )]
+position = Vector2( 962, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+color = Color( 0, 0.756863, 0.956863, 1 )
+
+[node name="Brick 7" parent="Bricks/Row 0" instance=ExtResource( 2 )]
+position = Vector2( 1122, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+color = Color( 0, 0.756863, 0.956863, 1 )
+
+[node name="ResetTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="UI" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Score" type="Label" parent="UI"]
+margin_left = 1152.0
+margin_right = 1280.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 2 )
+text = "000"
+align = 1
+valign = 1
+
+[node name="Lives" type="Label" parent="UI"]
+margin_left = 384.0
+margin_right = 896.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 2 )
+text = "000"
+align = 1
+valign = 1
+
+[node name="Level" type="Label" parent="UI"]
+margin_right = 128.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 2 )
+text = "00"
+align = 1
+valign = 1
+
+[connection signal="body_entered" from="DeadZone" to="." method="_on_DeadZone_body_entered"]
+[connection signal="brick_broke" from="Bricks" to="." method="_on_Bricks_brick_broke"]
+[connection signal="broke" from="Bricks/Row 7/Brick 0" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 7/Brick 1" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 7/Brick 2" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 7/Brick 3" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 7/Brick 4" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 7/Brick 5" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 7/Brick 6" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 7/Brick 7" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 6/Brick 0" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 6/Brick 1" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 6/Brick 2" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 6/Brick 3" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 6/Brick 4" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 6/Brick 5" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 6/Brick 6" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 6/Brick 7" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 5/Brick 0" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 5/Brick 1" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 5/Brick 2" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 5/Brick 3" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 5/Brick 4" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 5/Brick 5" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 5/Brick 6" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 5/Brick 7" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 4/Brick 0" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 4/Brick 1" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 4/Brick 2" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 4/Brick 3" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 4/Brick 4" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 4/Brick 5" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 4/Brick 6" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 4/Brick 7" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 3/Brick 0" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 3/Brick 1" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 3/Brick 2" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 3/Brick 3" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 3/Brick 4" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 3/Brick 5" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 3/Brick 6" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 3/Brick 7" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 2/Brick 0" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 2/Brick 1" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 2/Brick 2" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 2/Brick 3" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 2/Brick 4" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 2/Brick 5" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 2/Brick 6" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 2/Brick 7" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 1/Brick 0" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 1/Brick 1" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 1/Brick 2" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 1/Brick 3" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 1/Brick 4" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 1/Brick 5" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 1/Brick 6" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 1/Brick 7" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 0/Brick 0" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 0/Brick 1" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 0/Brick 2" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 0/Brick 3" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 0/Brick 4" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 0/Brick 5" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 0/Brick 6" to="Bricks" method="_on_Brick_broke"]
+[connection signal="broke" from="Bricks/Row 0/Brick 7" to="Bricks" method="_on_Brick_broke"]
+[connection signal="timeout" from="ResetTimer" to="." method="_on_ResetTimer_timeout"]

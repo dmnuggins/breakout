@@ -5,6 +5,7 @@ var velocity = Vector2.ZERO
 var motion_vec = Vector2.ZERO
 var angle_factor = 7
 
+
 func _ready():
 	velocity.y = speed
 	pass
