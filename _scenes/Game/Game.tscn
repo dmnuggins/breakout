@@ -573,7 +573,6 @@ __meta__ = {
 color = Color( 0, 0.756863, 0.956863, 1 )
 
 [node name="ResetTimer" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true
 
 [node name="UI" type="Control" parent="."]

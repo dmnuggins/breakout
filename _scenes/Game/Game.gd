@@ -16,16 +16,20 @@ func level_complete():
 	bricks.queue_free() # despawn all bricks
 	ball.queue_free() # despawns ball
 	update_difficulty(1)
+	
 	# plus 1 life for each level completed
 	num_lives += 1
 	update_lives()
+	
 	# instantiate bricks prefab
 	bricks = bricks_prefab.instance()
 	add_child(bricks)
+	
 	# connect Bricks signals to Game.gd script functions
 	bricks.connect("brick_broke", self, "_on_Bricks_brick_broke")
 	bricks.connect("last_brick_broke", self, "_on_bricks_last_brick_broke")
 	
+	$ResetTimer.start() # reset timer for ball spawn
 	$Player.reset_ball()
 	update_speed_multiplier()
 
@@ -90,7 +94,6 @@ func _physics_process(delta):
 			reset()
 		elif $Player.launchable():
 			ball = $Player.launch_ball(ball_prefab)
-#			print(ball)
 			add_child(ball)
 		else:
 			print("Cannot launch ball")
@@ -101,8 +104,7 @@ func _on_DeadZone_body_entered(body):
 	ball.queue_free()
 	
 	if num_lives >= 0:
-#		$ResetTimer.start()
-		$Player.reset_ball()
+		$ResetTimer.start()
 	else:
 		game_over = true
 
@@ -115,4 +117,3 @@ func _on_Bricks_brick_broke(row: int):
 
 func _on_Bricks_last_brick_broke():
 	level_complete()
-

@@ -5,7 +5,6 @@ var velocity = Vector2.ZERO
 var motion_vec = Vector2.ZERO
 var angle_factor = 7
 
-
 func _ready():
 	velocity.y = speed
 	pass
@@ -17,15 +16,12 @@ func _physics_process(delta):
 		if is_on_ceiling():
 			velocity.y = -velocity.y
 			$Wall.play()
-			print("HIT - Ceiling")
 		if is_on_wall():
 			$Wall.play()
 			velocity.x = -velocity.x
-			print("HIT - Wall")
 		if is_on_floor():
 			$Paddle.play()
 			velocity.y = -velocity.y
-			print("HIT - Paddle")
 			for slide in get_slide_count():
 				var collision = get_slide_collision(slide)
 				velocity.x = (transform.origin.x - collision.collider.position.x) * angle_factor
@@ -36,6 +32,7 @@ func _physics_process(delta):
 func break_brick() -> bool:
 	for slide in get_slide_count():
 		var collision := get_slide_collision(slide)
+		
 		# Brick in this case, bing the class
 		if collision.collider is Brick: 
 			speed += (collision.collider.row / 4.0) * get_parent().speed_multiplier
