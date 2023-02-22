@@ -13,17 +13,19 @@ var score := 0
 var game_over = false
 
 func level_complete():
-	bricks.queue_free()
-	difficulty += 1
+	bricks.queue_free() # despawn all bricks
+	ball.queue_free() # despawns ball
+	update_difficulty(1)
 	# plus 1 life for each level completed
 	num_lives += 1
-	
+	update_lives()
+	# instantiate bricks prefab
 	bricks = bricks_prefab.instance()
 	add_child(bricks)
+	# connect Bricks signals to Game.gd script functions
 	bricks.connect("brick_broke", self, "_on_Bricks_brick_broke")
 	bricks.connect("last_brick_broke", self, "_on_bricks_last_brick_broke")
 	
-	$UI/Level.set_text(str(difficulty))
 	$Player.reset_ball()
 	update_speed_multiplier()
 
@@ -32,11 +34,14 @@ func _ready():
 	update_lives()
 	$UI/Score.set_text(str(0))
 	$UI/Level.set_text(str(1))
-	pass
 
 func update_score(value: int):
 	score += value
 	$UI/Score.set_text(str(score))
+
+func update_difficulty(value: int):
+	difficulty += value
+	$UI/Level.set_text(str(difficulty))
 
 func update_lives():
 	match num_lives:
@@ -57,18 +62,18 @@ func update_speed_multiplier():
 func reset():
 	bricks.queue_free()
 	score = 0
-	update_score(0)
 	difficulty = 1
 	num_lives = 3
-	update_lives()
 	speed_multiplier = 0.0
 	game_over = false
+	
+	update_score(0)
+	update_lives()
 	load_level()
 
 func load_level():
 	num_lives = 3
-	# update lives UI
-	
+	update_lives()
 	bricks = bricks_prefab.instance()
 	add_child(bricks)
 	bricks.connect("brick_broke", self, "_on_Bricks_brick_broke")
@@ -100,16 +105,14 @@ func _on_DeadZone_body_entered(body):
 		$Player.reset_ball()
 	else:
 		game_over = true
-	
 
 # timer to delay resettting ball
 func _on_ResetTimer_timeout():
 	$Player.reset_ball()
-	pass # Replace with function body.
-
-
-
 
 func _on_Bricks_brick_broke(row: int):
 	update_score(row + 1)
-	pass # Replace with function body.
+
+func _on_Bricks_last_brick_broke():
+	level_complete()
+
