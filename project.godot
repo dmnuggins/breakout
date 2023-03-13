@@ -22,6 +22,8 @@ _global_script_class_icons={
 
 config/name="breakout"
 run/main_scene="res://_scenes/Game/Game.tscn"
+config/icon="res://_assets/icon.png"
+config/windows_native_icon="res://_assets/favicon.ico"
 
 [display]
 
